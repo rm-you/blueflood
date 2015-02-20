@@ -144,8 +144,8 @@ public enum CoreConfig implements ConfigDefaults {
     ROLLUP_DELAY_MILLIS("300000"),
     STRING_METRICS_DROPPED("false"),
     TENANTIDS_TO_KEEP(""),
-
-    BYPASS_ROLLUP_TYPE_CACHE("false");
+    
+    USE_ES_FOR_UNITS("false");
 
     static {
         Configuration.getInstance().loadDefaults(CoreConfig.values());
