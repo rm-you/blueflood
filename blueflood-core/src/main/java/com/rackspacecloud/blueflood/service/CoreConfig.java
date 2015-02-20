@@ -148,6 +148,7 @@ public enum CoreConfig implements ConfigDefaults {
     
     USE_ES_FOR_UNITS("false");
 
+
     static {
         Configuration.getInstance().loadDefaults(CoreConfig.values());
     }
