@@ -75,14 +75,14 @@ public class PlotRequestParser {
             throw new InvalidRequestException("Invalid parameter: points=" + points);
         } else if (res != null && res.size() != 1) {
             throw new InvalidRequestException("Invalid parameter: resolution=" + res);
-        } else if (from == null || from.size() != 1) {
+        } else if (from != null && from.size() != 1) {
             throw new InvalidRequestException("Invalid parameter: from=" + from);
-        } else if (to == null || to.size() != 1) {
+        } else if (to != null && to.size() != 1) {
             throw new InvalidRequestException("Invalid parameter: to="+ to);
         }
 
-        long fromTime = Long.parseLong(from.get(0));
-        long toTime = Long.parseLong(to.get(0));
+        long fromTime = (from == null) ? 0 : Long.parseLong(from.get(0));
+        long toTime = (to == null) ? System.currentTimeMillis() : Long.parseLong(to.get(0));
 
         if (toTime <= fromTime) {
             throw new InvalidRequestException("paramter 'to' must be greater than 'from'");
